@@ -5,12 +5,15 @@ body {
     margin: 20px;
 }
 
+/* Cabeçalhos */
 h2 {
     color: #ff69b4;
     font-size: 24px;
     text-align: center;
+    margin-bottom: 20px; /* Adiciona um pouco de espaço abaixo do cabeçalho */
 }
 
+/* Formulário */
 form {
     background-color: #fff;
     padding: 20px;
@@ -20,9 +23,9 @@ form {
     margin: auto;
 }
 
-/* Inputs de texto */
+/* Inputs de texto e senha */
 input[type="text"], input[type="password"] {
-    width: 100%;
+    width: calc(100% - 16px); /* Ajusta a largura para incluir padding e border */
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -34,6 +37,13 @@ input[type="text"], input[type="password"] {
 /* Radio e Checkbox */
 input[type="radio"], input[type="checkbox"] {
     margin-right: 10px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 5px; /* Espaço abaixo do label */
+    font-weight: bold;
 }
 
 /* Estilo dos botões */
