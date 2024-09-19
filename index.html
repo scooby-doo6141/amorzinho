@@ -19,12 +19,20 @@
             const escolhaSim = document.getElementById("casar-sim");
             const mensagem = document.getElementById("mensagem");
 
-            if (escolhaSim.checked) {
+            if (escolhaSim && escolhaSim.checked) {
                 mensagem.textContent = "Agora estamos casados!";
             } else {
                 mensagem.textContent = "";
             }
         }
+
+        // Adiciona um evento para alterar a mensagem ao selecionar uma opção
+        document.addEventListener('DOMContentLoaded', () => {
+            const radios = document.querySelectorAll('input[name="escolha"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', exibirMensagem);
+            });
+        });
     </script>
 </head>
 <body>
@@ -44,7 +52,7 @@
         <br/><br/>
         Aceita se casar comigo: 
         <input type="radio" id="casar-nao" name="escolha" value="não"/> não
-        <input type="radio" id="casar-sim" name="escolha" value="sim" onclick="exibirMensagem()"/> sim
+        <input type="radio" id="casar-sim" name="escolha" value="sim"/> sim
         <br/><br/>
         <span id="mensagem" style="color: #ff1493; font-weight: bold;"></span>
         <br/><br/>
