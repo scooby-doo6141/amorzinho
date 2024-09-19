@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,14 +7,22 @@
     <title>Formulário</title>
     <script>
         function verificarEscolha(event) {
-            // Obter o valor selecionado do grupo de rádio "escolha"
             const escolha = document.querySelector('input[name="escolha"]:checked');
 
-            // Verificar se a escolha é "não"
             if (escolha && escolha.value === "não") {
-                // Mostrar um alerta pedindo para reconsiderar
                 alert("Você marcou 'não'. Por favor, reconsidere sua escolha.");
                 event.preventDefault(); // Impede o envio do formulário
+            }
+        }
+
+        function exibirMensagem() {
+            const escolhaSim = document.getElementById("casar-sim");
+            const mensagem = document.getElementById("mensagem");
+
+            if (escolhaSim.checked) {
+                mensagem.textContent = "Agora estamos casados!";
+            } else {
+                mensagem.textContent = "";
             }
         }
     </script>
@@ -36,8 +43,10 @@
         <input type="checkbox" id="gosto4" value="muito"/> muito
         <br/><br/>
         Aceita se casar comigo: 
-        <input type="radio" name="escolha" value="não"/> não
-        <input type="radio" name="escolha" value="sim"/> sim
+        <input type="radio" id="casar-nao" name="escolha" value="não"/> não
+        <input type="radio" id="casar-sim" name="escolha" value="sim" onclick="exibirMensagem()"/> sim
+        <br/><br/>
+        <span id="mensagem" style="color: #ff1493; font-weight: bold;"></span>
         <br/><br/>
         <label for="senha">Digite a data de nosso namoro (xx/xx/xxxx):</label>
         <input type="password" id="senha" name="senha" pattern="18/06/2023" required/>
